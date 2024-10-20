@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <h1>STUDENT FORM</h1>
+    <!--Student Form-->
+    <form id="StudentForm" class="box__1">
+        <table border="2">
+            <tr>
+                <td><strong><label for="name">Name</label></strong></td>
+                <td><input type="text" id="name" placeholder="Enter your Name"></td>
+            </tr>
+            <tr>
+                <td><strong><label for="age">Age</label></strong></td>
+                <td><input type="text" id="age" placeholder="Enter your Age"></td>
+            </tr>
+            <tr>
+                <td><strong><label for="gender">Gender</label></strong></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Male"> Male
+                    <input type="radio" id="female" name="gender" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td><strong><label for="course">Course</label></strong></td>
+                <td>
+                    <select id="course">
+                        <option>Full Stack Developer</option>
+                        <option>Data Scientist</option>
+                        <option>AI Engineer</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><strong><label for="email">E-mail</label></strong></td>
+                <td><input type="email" id="email" placeholder="Enter your email"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button class="btn" id="saveBtn">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <!--Student ID-->
+    <table id="studentTable" border="2" class="box__2">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>COURSE</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic rows will be added here -->
+        </tbody>
+    </table>
+</div> 
+
+    <script>
+        let studentData = [];
+
+        document.getElementById('saveBtn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            const course = document.getElementById('course').value;
+            const gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '';
+
+            if (name === '' || age === '' || email === '' || gender === '') {
+                alert('Please fill all fields!');
+                return;
+            }
+
+            const student = {
+                name,
+                age,
+                email,
+                course,
+                gender
+            };
+
+            studentData.push(student);
+            displayStudents();
+            clearForm();
+        });
+
+        function displayStudents() {
+            const tableBody = document.querySelector('#studentTable tbody');
+            tableBody.innerHTML = ''; // Clear previous data
+
+            studentData.forEach((student, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.age}</td>
+                    <td>${student.course}</td>
+                    <td>${student.gender}</td>
+                    <td>${student.email}</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-edit" onclick="editStudent(${index})">Edit</button>
+                        <button class="btn btn-danger" onclick="deleteStudent(${index})">Delete</button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('course').value = 'JavaScript';
+            document.querySelectorAll('input[name="gender"]').forEach(radio => radio.checked = false);
+        }
+
+        function deleteStudent(index) {
+            studentData.splice(index, 1);
+            displayStudents();
+        }
+
+        function editStudent(index) {
+            const student = studentData[index];
+            document.getElementById('name').value = student.name;
+            document.getElementById('age').value = student.age;
+            document.getElementById('email').value = student.email;
+            document.getElementById('course').value = student.course;
+            document.querySelector(input[name="gender"][value="${student.gender}"]).checked = true;
+
+            studentData.splice(index, 1); // Remove the student from the list temporarily
+        }
+    </script>
+</body>
+</html>

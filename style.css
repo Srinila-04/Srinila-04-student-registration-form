@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #f0f0f0; /* Optional background color */
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.container {
+    text-align: center; /* Center text inside the container */
+    padding: 7px; /* Add some padding */
+    background-color: #E8F5E9;
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Optional shadow */
+    width: 900px;
+    max-width: 900px;
+
+}
+
+table {
+    margin: 0 auto; /* Center the table */
+}
+
+form {
+    margin-bottom: 20px; /* Add gap between the form and student ID table */
+}
+
+.box__1 {
+    width: 500px; /* Set a specific width */
+    padding: 20px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.box__1 table {
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    width: 100%; /* Optional: makes the table take the full width of the container */
+}
+
+.box_1 table, .box1 th, .box_1 td {
+    border: 2px solid black; /* Set border color to black */
+    padding: 10px; /* Optional: adds padding to cells for better spacing */
+}
+
+
+h1 {
+    font-size: 28px; /* Increase title font size */
+}
+
+table {
+    width: 100%; /* Make the table full width */
+}
+
+td, th {
+    padding: 10px; /* Increase padding for table cells */
+    font-size: 18px; /* Increase font size for table text */
+}
+
+/* Style for input fields */
+input[type="text"],
+input[type="email"],
+select {
+    border: 2px solid black; /* Add a black border */
+    border-radius: 4px; /* Optional: rounded corners */
+    padding: 10px; /* Add some padding */
+    width: calc(100% - 22px); /* Adjust width to fit padding */
+}
+
+/* Style for the placeholder text */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Adjust color of the placeholder */
+    font-size: 15px;
+}
+
+
+.btn {
+    padding: 10px 15px; /* Increased button padding for larger size */
+    font-size: 20px; /* Increased button font size */
+    cursor: pointer; /* Show pointer cursor on hover */
+    background-color:#388E3C; /* Background color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+}
+
+/* Optional: Change background color and scale on hover */
+.btn:hover {
+    background-color: #FFF3E0; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    border: solid black 1px;
+}
+
+.box__2 {
+    margin: 20px auto; /* Center the box */
+    max-width: 800px; /* Optional: limit the width */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    overflow-x: auto;
+}
+
+.box__2 table {
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    width: 100%; /* Makes the table take the full width of the container */
+}
+
+.box_2 table, .box2 th, .box_2 td {
+    border: 2px solid black; /* Set border color to black */
+    padding: 8px; /* Decrease padding for a more compact look */
+    text-align: left; /* Align text to the left for consistency */
+}
+
+.box__2 th {
+    background-color: #f2f2f2; /* Optional: add a background color for headers */
+}
+
+.box__2 td {
+    height: 55px; /* Set a fixed height for table cells */
+}
+
+.btn {
+    padding: 8px 12px; /* Adjust padding for better spacing */
+    margin: 5px; /* Add margin for spacing between buttons */
+}
+
+.action-buttons {
+    display: flex; /* Use flexbox to align buttons */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 10px; /* Optional: add space between buttons */
+}
